@@ -1,0 +1,15 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  # you must tag to avoid keep juggling the image ID
+  - docker build -t b2training/frontend -f Dockerfile.dev .
+  - 
+
+
+script:
+  # travis will look for the status code differenct thatn zero. 
+  # If zero, it will be successful. If not, it will be failed.
+  - docker run -e CI=true -t b2training/frontend npm run test
