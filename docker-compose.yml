@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web:
+    build:
+      context: . # current directory (where the docker-compose.yml file is located)
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000" # map the port 3000 of the container to the port 3000 of the host
+    volumes:
+      - /app/node_modules
+      - .:/app
+
+  tests:
+    build:
+      context: . # current directory (where the docker-compose.yml file is located)
+      dockerfile: Dockerfile.dev # map the port 3000 of the container to the port 3000 of the host
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: [ "npm", "run", "test" ]
