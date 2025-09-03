@@ -16,7 +16,7 @@ script:
   - docker run -e CI=true -t b2training/frontend npm run test
 
 deploy:
-  privder: elasticbeanstalk
+  provider: elasticbeanstalk
   region: "us-east-1"
   app: "frontend"
   env: "Frontend-env-2"
