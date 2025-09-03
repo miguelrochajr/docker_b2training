@@ -13,3 +13,16 @@ script:
   # travis will look for the status code differenct thatn zero. 
   # If zero, it will be successful. If not, it will be failed.
   - docker run -e CI=true -t b2training/frontend npm run test
+
+deploy:
+  privder: elasticbeanstalk
+  region: "us-east-1"
+  app: "frontend"
+  env: "Frontend-env-2"
+  bucket_name: "elasticbeanstalk-us-east-1-390844765067"
+  bucket_path: "frontend"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+  
