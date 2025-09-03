@@ -5,7 +5,7 @@ services:
 
 before_install:
   # you must tag to avoid keep juggling the image ID
-  - docker build -t b2training/frontend -f Dockerfile.dev .
+  - docker build -t b2training/frontend -f Dockerfile .
   - 
 
 
